@@ -4,85 +4,306 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>广州天河法院判决离谱至极？棠德花苑业主维权无门，老旧楼加装电梯乱象无人管！</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
     <style>
-        body { font-family: 'PingFang SC', Arial, sans-serif; line-height: 1.6; margin: 20px; max-width: 900px; margin: auto; background-color: #f9f9f9; color: #333; }
-        h1 { color: #d32f2f; text-align: center; border-bottom: 2px solid #d32f2f; padding-bottom: 10px; }
-        h2 { color: #1976d2; border-left: 4px solid #1976d2; padding-left: 10px; }
-        ul { list-style-type: none; padding: 0; }
-        li { background: #fff; margin: 10px 0; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        li strong { color: #d32f2f; }
-        .judgment, .background, .solidarity, .open-letter { background-color: #eceff1; padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #455a64; }
-        .conclusion { background-color: #fff3e0; padding: 15px; border-radius: 5px; text-align: center; font-weight: bold; }
-        .share-buttons { text-align: center; margin: 20px 0; }
-        .share-buttons a { background: #1976d2; color: white; padding: 10px 20px; margin: 5px; text-decoration: none; border-radius: 5px; }
-        .share-buttons a:hover { background: #1565c0; }
-        .cta { display: block; background: #d32f2f; color: white; text-align: center; padding: 15px; margin: 20px 0; border-radius: 5px; text-decoration: none; font-weight: bold; }
-        .cta:hover { background: #b71c1c; }
-        .chart { background: #fff; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center; }
-        .chart img { max-width: 100%; height: auto; }
-        @media (max-width: 600px) { body { margin: 10px; } h1 { font-size: 1.5em; } }
+        /* --- 全局样式和深色主题 --- */
+        :root {
+            --primary-text-color: #e0e0e0;
+            --secondary-text-color: #b0b0b0;
+            --background-color: #121212;
+            --container-background: #1e1e1e;
+            --accent-color-red: #ff5252;
+            --accent-color-blue: #64b5f6;
+            --border-color: #424242;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            margin: 0;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- 布局容器 --- */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: var(--container-background);
+            border-radius: 10px;
+            padding: 20px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- 标题和文本样式 --- */
+        h1 {
+            color: var(--accent-color-red);
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color-red);
+            padding-bottom: 15px;
+            font-size: 2.2em;
+            line-height: 1.4;
+        }
+
+        h2 {
+            color: var(--accent-color-blue);
+            border-left: 4px solid var(--accent-color-blue);
+            padding-left: 15px;
+            font-size: 1.6em;
+            margin-top: 40px;
+        }
+
+        h3 {
+            text-align: center;
+            color: #e0e0e0;
+        }
+        
+        p {
+            font-size: 1.1em;
+        }
+        
+        strong {
+            color: var(--accent-color-red);
+        }
+
+        /* --- 内容区块 --- */
+        .content-block {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #616161;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #2a2a2a;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color-red);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 1.1em;
+        }
+        
+        /* --- 结论部分 --- */
+        .conclusion {
+            background-color: #332a1e;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ffab40;
+        }
+        
+        /* --- 行动号召按钮(CTA) --- */
+        .cta {
+            display: block;
+            background: var(--accent-color-red);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+        }
+        .cta.email {
+             background: var(--accent-color-blue);
+        }
+        .cta.email:hover {
+            background: #1976d2;
+        }
+
+        /* --- 分享功能 --- */
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+        }
+        .share-section h2 {
+            border-left: none;
+            color: var(--primary-text-color);
+            margin-top: 0;
+        }
+        .share-buttons a {
+            display: inline-block;
+            background: var(--accent-color-blue);
+            color: white;
+            padding: 12px 25px;
+            margin: 8px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .share-buttons a:hover {
+            background: #1e88e5;
+            transform: translateY(-2px);
+        }
+
+        /* --- 评论区 --- */
+        #gitalk-container {
+            margin-top: 40px;
+        }
+        
+        /* --- 页脚与计数器 --- */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--secondary-text-color);
+            font-size: 0.9em;
+        }
+        footer span {
+            margin: 0 10px;
+        }
+        
+        /* --- 响应式设计 --- */
+        @media (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.4em;
+            }
+        }
     </style>
 </head>
 <body>
-       <div class="share-buttons">
-        <h2>我维权20多年，已经看尽了广州政府各部门的嘴脸和表演，为此我和妻子还反目，害我家庭分裂，现在我准备放下法律拿起武器，你们可以对我寻衅滋事，可以对我骚扰，但我不会停，先用舆论武器揭露真相</h2>
-        <p>宪法赋予我们言论自由，业主的苦必须让全国知道！快转发！</p>
-        <a href="https://service.weibo.com/share/mobile.php?content=广州天河法院判决离谱至极？棠德花苑业主空调被毁3年不赔，圈梁断一半无人管！快来看真相！%23业主维权%23%23广州电梯乱象%23&url=[YOUR_URL]" target="_blank">分享到微博</a>
-        <a href="weixin://">分享到微信</a>
-        <a href="https://connect.qq.com/widget/shareqq/index.html?url=[YOUR_URL]&title=广州法院判决离谱！业主维权无门！" target="_blank">分享到QQ</a>
-    </div>
 
-    <h1>现代版葫芦僧断案。。。。荒唐、无耻、奇葩。。。。广州天河法院判决离谱至极？<br>棠德花苑业主维权无门，老旧楼加装电梯乱象无人管！</h1>
-    
-    <div class="judgment">
-        <h2>判决书关键内容（2024）粤0106民初28919号</h2>
-        <p><strong>当事人</strong>：原告刘洪军；被告某建筑公司及相关个人。</p>
-        <p><strong>案由</strong>：2023年5月，被告公司在棠德花苑加装电梯时，擅自挪动原告空调外机，致水泥渣堵塞、铜管损坏，无法制冷，中间找过街道、居委、12345以及两次报警均无法处理。原告诉请：赔偿更换空调、拆机费、检测费、清洗费等及诉讼费由被告承担。</p>
-        <p><strong>法院认定</strong>：被告公司侵权（未经同意搬空调、未妥善处理），其他被告无证据参与侵权。</p>
-        <p><strong>判决结果</strong>：2025年9月23日，判被告公司赔511元（拆机200元(未拆机无发票)、检测100元、快递11元、清洗200元(未清洗无发票)）。驳回：空调更换费（无发票+未更换）、道歉。诉讼费113元全部由原告承担。</p>
-        <p><strong>审理时间</strong>：2024年6月24日立案，2024年11月11日开庭，2025年9月23日判决（15个月）。</p>
-        <div class="chart">
-            <h3>赔偿对比：逻辑何在？</h3>
-            <p>法院赔拆装费200元、清洗费200元（未发生无发票），却不赔空调更换费1600元（同样无发票但提供了京东官网价格）。小额赔，大额不赔？</p>
+    <main class="container">
+
+        <h1>现代版葫芦僧断案？荒唐、无耻、奇葩！<br>广州天河法院判决离谱至极？棠德花苑业主维权无门！</h1>
+        
+        <div class="share-section">
+            <h2>我维权20多年，已看尽广州政府嘴脸，家庭因此分裂。我准备拿起舆论武器，揭露真相！</h2>
+            <p>宪法赋予我们言论自由，业主的苦必须让全国知道！请立即转发！</p>
+            <div class="share-buttons">
+                <a href="javascript:void(0);" onclick="shareToWeibo()">分享到微博</a>
+                <a href="javascript:void(0);" onclick="shareToQQ()">分享到QQ</a>
+                <a href="javascript:void(0);" onclick="shareToWechat()">分享到微信</a>
+            </div>
         </div>
-    </div>
-    
-    <div class="background">
-        <h2>背景：广州加装电梯政策的业主之痛</h2>
-        <p>广州市政府大力推广老旧小区加装电梯，号称便民，但施工乱象频出：棠德花苑楼房11根圈梁被打断6根（超50%，威胁结构安全），设计方案要求加固却无具体措施且报审材料连加固方案都没有，所有责任推给业主。近年广东和广州住建系统问题频发，甚至连广州住建头子去年也被抓。业主安全谁来保障？原告空调被毁只是冰山一角，法院判决为何疑似偏袒利益方及施工方？</p>
-        <div class="chart">
+        
+        <div class="content-block">
+            <h2>判决书关键内容（2024）粤0106民初28919号</h2>
+            <p><strong>当事人</strong>：原告刘洪军；被告某建筑公司及相关个人。</p>
+            <p><strong>案由</strong>：2023年5月，被告公司在棠德花苑加装电梯时，擅自挪动原告空调外机，致水泥渣堵塞、铜管损坏，无法制冷。期间找过街道、居委、12345及两次报警均无法处理。原告诉请：赔偿更换空调、拆机费、检测费、清洗费等及诉讼费由被告承担。</p>
+            <p><strong>法院认定</strong>：被告公司侵权（未经同意搬空调、未妥善处理），其他被告无证据参与侵权。</p>
+            <p><strong>判决结果</strong>：2025年9月23日，判被告公司赔511元（拆机200元(未拆机无发票)、检测100元、快递11元、清洗200元(未清洗无发票)）。驳回：空调更换费（无发票+未更换）、道歉。诉讼费113元全部由原告承担。</p>
+            <p><strong>审理时间</strong>：立案到判决耗时15个月 (2024年6月24日 - 2025年9月23日)。</p>
+            <h3>赔偿对比：逻辑何在？</h3>
+            <p>法院支持了未实际发生的拆装费200元、清洗费200元，却以“未实际更换”为由驳回了同样未实际发生的空调更换费1600元。这是典型的“赔小不赔大”，逻辑完全自相矛盾！</p>
+        </div>
+        
+        <div class="content-block">
+            <h2>背景：广州加装电梯政策下的业主之痛</h2>
+            <p>广州市政府大力推广老旧小区加装电梯，号称便民，但施工乱象频出：棠德花苑楼房11根圈梁被打断6根（超50%，威胁结构安全），设计方案要求加固却无具体措施且报审材料连加固方案都没有，所有责任推给业主。近年广东和广州住建系统问题频发，甚至连广州住建头子去年也被抓。业主安全谁来保障？原告空调被毁只是冰山一角，法院判决为何疑似偏袒利益方及施工方？</p>
             <h3>棠德花苑安全隐患一览</h3>
             <p>楼房11根圈梁，6根被打断（占54.5%），严重威胁结构安全！</p>
         </div>
-    </div>
+        
+        <h2>判决书6大确定不公之处！</h2>
+        <ul>
+            <li><strong>法院逻辑自相矛盾，赔小不赔大？</strong><br>法院承认施工方毁了空调，赔了拆装费200元、清洗费200元（无发票也支持），却说1600元更换费“没换新不算损失”。同样没实际发生，为啥拆装清洗赔，空调不赔？这种荒唐逻辑居然发生在广州天河法院？</li>
+            <li><strong>空调毁了3年不赔新机费？</strong><br>检测报告确认施工方乱来导致空调无法制冷，原告要1600元换新，法院却说“没发票+没换新不算损失”。广州3年高温（35°C+），无空调生活多苦？法院不让业主恢复正常生活？</li>
+            <li><strong>胜诉了还自掏诉讼费？</strong><br>施工方侵权成立，赔了511元，但113元诉讼费全让原告出。被告惹祸，受害人倒贴钱？这是保护谁的利益？再次证明司法黑暗、奇葩、荒唐、无耻！！！！！</li>
+            <li><strong>法官微信加被告律师？</strong><br>开庭当天，法官与被告律师加微信“传证据”，原告却得用法院平台/快递。程序公平在哪？谁看了不怀疑有私下交易？</li>
+            <li><strong>15个月才判，拖延加重苦难？</strong><br>法律要求6-12个月结案，这案拖了15个月！3个夏天无空调，法院自己违法违规且不解释延期原因，业主的苦谁管？</li>
+            <li><strong>圈梁断一半，安全隐患被无视？</strong><br>楼房11根圈梁断6根，方案无加固细节，责任全推业主。政府推电梯，法院护施工方，业主的房安全谁保障？</li>
+        </ul>
+        
+        <div class="content-block">
+            <h2>致广州市政府、住建局、天河法院的公开信</h2>
+            <p>棠德花苑11根圈梁断6根，电梯加装方案无加固，业主安全谁保障？法院判决逻辑矛盾，赔小不赔大，疑似偏袒施工方！请立即彻查电梯乱象，公开安全评估，回应业主维权！</p>
+            <a href="#" class="cta">支持请愿，点击签名 (请替换为您的请愿链接)</a>
+        </div>
+        
+        <div class="content-block">
+            <h2>全国业主的共同呼声</h2>
+            <p>加装电梯本是便民工程，但野蛮施工、司法不公让多少业主欲哭无泪？20年维权路，业主的苦谁懂？你也遇到类似问题？快分享你的故事，联合起来为公平发声！</p>
+            <a href="mailto:justice4owners@example.com" class="cta email">提交你的经历 (请替换为您的邮箱)</a>
+        </div>
+        
+        <div class="conclusion">
+            <h2>业主维权为何如此艰难？</h2>
+            <p>空调坏了、房子不安全、打官司还倒贴钱，法院判决让人寒心。加装电梯本为民生，司法疑似偏袒施工方，业主权益谁来护？请转发，让更多人关注公平正义！</p>
+            <p>（基于真实判决书及20年维权经历，仅供参考，欢迎理性讨论）</p>
+        </div>
+
+        <h2 id="comments">发表评论 / Read Comments</h2>
+        <div id="gitalk-container"></div>
+        
+    </main>
+
+    <footer>
+        <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span> 次</span>
+        <span id="busuanzi_container_site_uv">本站访客数 <span id="busuanzi_value_site_uv"></span> 人</span>
+    </footer>
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     
-    <h2>判决书6大确定不公之处！！！！！！！！！！</h2>
-    <ul>
-        <li><strong>法院逻辑自相矛盾，赔小不赔大？</strong><br>法院承认施工方毁了空调，赔了拆装费200元、清洗费200元（无发票也支持），却说1600元更换费“没换新不算损失”。同样没实际发生，为啥拆装清洗赔，空调不赔？这种荒唐逻辑居然发生在广州天河法院？</li>
-        <li><strong>空调毁了3年不赔新机费？</strong><br>检测报告确认施工方乱来导致空调无法制冷，原告要1600元换新，法院却说“没发票+没换新不算损失”。广州3年高温（35°C+），无空调生活多苦？法院不让业主恢复正常生活？</li>
-        <li><strong>胜诉了还自掏诉讼费？</strong><br>施工方侵权成立，赔了511元，但113元诉讼费全让原告出。被告惹祸，受害人倒贴钱？这是保护谁的利益？再次证明司法黑暗、奇葩、荒唐、无耻！！！！！</li>
-        <li><strong>法官微信加被告律师？</strong><br>开庭当天，法官与被告律师加微信“传证据”，原告却得用法院平台/快递。程序公平在哪？谁看了不怀疑有私下交易？</li>
-        <li><strong>15个月才判，拖延加重苦难？</strong><br>法律要求6-12个月结案，这案拖了15个月！3个夏天无空调，法院自己违法违规且不解释延期原因，业主的苦谁管？</li>
-        <li><strong>圈梁断一半，安全隐患被无视？</strong><br>楼房11根圈梁断6根，方案无加固细节，责任全推业主。政府推电梯，法院护施工方，业主的房安全谁保障？</li>
-    </ul>
-    
-    <div class="open-letter">
-        <h2>致广州市政府、住建局、天河法院的公开信</h2>
-        <p>棠德花苑11根圈梁断6根，电梯加装方案无加固，业主安全谁保障？法院判决逻辑矛盾，赔小不赔大，疑似偏袒施工方！请立即彻查电梯乱象，公开安全评估，回应业主维权！</p>
-        <a href="https://www.fuckyou.com" class="cta">支持请愿，点击签名</a>
-    </div>
-    
-    <div class="solidarity">
-        <h2>全国业主的共同呼声</h2>
-        <p>加装电梯本是便民工程，但野蛮施工、司法不公让多少业主欲哭无泪？20年维权路，业主的苦谁懂？你也遇到类似问题？快分享你的故事，联合起来为公平发声！</p>
-        <a href="mailto:justice4owners@example.com" class="cta">提交你的经历</a>
-    </div>
-    
-    
-    <div class="conclusion">
-        <h2>业主维权为何如此艰难？</h2>
-        <p>空调坏了、房子不安全、打官司还倒贴钱，法院判决让人寒心。加装电梯本为民生，司法疑似偏袒施工方，业主权益谁来护？请转发，让更多人关注公平正义！</p>
-        <p>（基于真实判决书及20年维权经历，仅供参考，欢迎理性讨论）</p>
-    </div>
+    <script>
+        // --- 社交分享功能 ---
+        function shareToWeibo() {
+            var url = encodeURIComponent(window.location.href);
+            var title = encodeURIComponent(document.title + ' ' + '广州天河法院判决离谱至极？棠德花苑业主空调被毁3年不赔，圈梁断一半无人管！快来看真相！#业主维权# #广州电梯乱象#');
+            var shareUrl = 'http://service.weibo.com/share/share.php?url=' + url + '&title=' + title;
+            window.open(shareUrl, '_blank');
+        }
+
+        function shareToQQ() {
+            var url = encodeURIComponent(window.location.href);
+            var title = encodeURIComponent(document.title);
+            var shareUrl = 'http://connect.qq.com/widget/shareqq/index.html?url=' + url + '&title=' + title + '&desc=广州天河法院葫芦僧判断，业主维权反倒贴钱！点击查看详情！';
+            window.open(shareUrl, '_blank');
+        }
+
+        function shareToWechat() {
+            alert('微信分享功能在PC端需要您手动截图，或者使用手机浏览器的分享功能。感谢您的支持！');
+            // 未来可以优化为弹出一个二维码窗口
+        }
+
+        // --- 初始化Gitalk评论系统 ---
+        // !!!【重要】请务必替换以下为你自己的信息
+        const gitalk = new Gitalk({
+            clientID: '你的 GitHub OAuth App Client ID', // 必须替换
+            clientSecret: '你的 GitHub OAuth App Client Secret', // 必须替换
+            repo: '你的网站所在的仓库名', // 必须替换，例如 'my-blog'
+            owner: '你的 GitHub 用户名', // 必须替换
+            admin: ['你的 GitHub 用户名'], // 必须替换，这是管理员账号
+            id: location.pathname,      // 页面的唯一标识，保持默认即可
+            distractionFreeMode: false  // 无干扰模式
+        });
+
+        gitalk.render('gitalk-container');
+    </script>
+
 </body>
 </html>
