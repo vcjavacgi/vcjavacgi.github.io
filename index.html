@@ -49,6 +49,7 @@
             padding-bottom: 15px;
             font-size: 2.2em;
             line-height: 1.4;
+            margin-bottom: 15px; /* 调整标题下边距 */
         }
 
         h2 {
@@ -70,6 +71,21 @@
         
         strong {
             color: var(--accent-color-red);
+        }
+
+        /* --- 访问计数器 (新位置) --- */
+        .visitor-counter {
+            text-align: center;
+            margin: 10px 0 25px 0;
+            color: var(--secondary-text-color);
+            font-size: 1em;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+        }
+        .visitor-counter span {
+            margin: 0 10px;
         }
 
         /* --- 内容区块 --- */
@@ -165,15 +181,13 @@
             margin-top: 40px;
         }
         
-        /* --- 页脚与计数器 --- */
+        /* --- 页脚 --- */
         footer {
             text-align: center;
             margin-top: 40px;
+            padding-bottom: 20px;
             color: var(--secondary-text-color);
             font-size: 0.9em;
-        }
-        footer span {
-            margin: 0 10px;
         }
         
         /* --- 响应式设计 --- */
@@ -199,6 +213,11 @@
 
         <h1>现代版葫芦僧断案？荒唐、无耻、奇葩！<br>广州天河法院判决离谱至极？棠德花苑业主维权无门！</h1>
         
+        <div class="visitor-counter">
+            <span id="busuanzi_container_site_pv">总访问量 <strong id="busuanzi_value_site_pv" style="color: var(--accent-color-red);"></strong> 次</span>
+            |
+            <span id="busuanzi_container_site_uv">访客数 <strong id="busuanzi_value_site_uv" style="color: var(--accent-color-blue);"></strong> 人</span>
+        </div>
         <div class="share-section">
             <h2>我维权20多年，已看尽广州政府嘴脸，家庭因此分裂。我准备拿起舆论武器，揭露真相！</h2>
             <p>宪法赋予我们言论自由，业主的苦必须让全国知道！请立即转发！</p>
@@ -261,8 +280,7 @@
     </main>
 
     <footer>
-        <span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"></span> 次</span>
-        <span id="busuanzi_container_site_uv">本站访客数 <span id="busuanzi_value_site_uv"></span> 人</span>
+        <p>内容基于真实判决书及20年维权经历，仅供参考，欢迎理性讨论。</p>
     </footer>
 
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -291,15 +309,14 @@
         }
 
         // --- 初始化Gitalk评论系统 ---
-        // !!!【重要】请务必替换以下为你自己的信息
         const gitalk = new Gitalk({
-            clientID: '你的 GitHub OAuth App Client ID', // 必须替换
-            clientSecret: '你的 GitHub OAuth App Client Secret', // 必须替换
-            repo: '你的网站所在的仓库名', // 必须替换，例如 'my-blog'
-            owner: '你的 GitHub 用户名', // 必须替换
-            admin: ['你的 GitHub 用户名'], // 必须替换，这是管理员账号
-            id: location.pathname,      // 页面的唯一标识，保持默认即可
-            distractionFreeMode: false  // 无干扰模式
+            clientID: 'Ov23liTBbXAl2a3D1mdO',
+            clientSecret: 'ef698a4b13e1ed88b592dcda706de1b8c6322949',
+            repo: 'vcjavacgi.github.io',      // 你的仓库名称
+            owner: 'vcjavacgi',              // 你的GitHub用户名
+            admin: ['vcjavacgi'],            // 你的GitHub用户名 (管理员)
+            id: location.pathname,           // 页面的唯一标识，保持默认即可
+            distractionFreeMode: false       // 无干扰模式
         });
 
         gitalk.render('gitalk-container');
