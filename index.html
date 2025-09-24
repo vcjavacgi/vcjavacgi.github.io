@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>广州天河法院判决离谱至极？棠德花苑业主维权无门，老旧楼加装电梯乱象无人管！</title>
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
 
     <style>
         /* --- 全局样式和深色主题 --- */
@@ -49,7 +49,7 @@
             padding-bottom: 15px;
             font-size: 2.2em;
             line-height: 1.4;
-            margin-bottom: 15px; /* 调整标题下边距 */
+            margin-bottom: 15px;
         }
 
         h2 {
@@ -73,7 +73,7 @@
             color: var(--accent-color-red);
         }
 
-        /* --- 访问计数器 (新位置) --- */
+        /* --- 访问计数器 --- */
         .visitor-counter {
             text-align: center;
             margin: 10px 0 25px 0;
@@ -176,9 +176,18 @@
             transform: translateY(-2px);
         }
 
-        /* --- 评论区 --- */
-        #gitalk-container {
+        /* --- Waline 评论区 --- */
+        #waline {
             margin-top: 40px;
+        }
+        /* 适配Waline的深色模式 */
+        #waline {
+            --waline-bg-color: #2a2a2a;
+            --waline-text-color: #e0e0e0;
+            --waline-border-color: #424242;
+            --waline-badge-color: var(--accent-color-blue);
+            --waline-theme-color: var(--accent-color-blue);
+            --waline-info-bg-color: #333;
         }
         
         /* --- 页脚 --- */
@@ -191,33 +200,18 @@
         }
         
         /* --- 响应式设计 --- */
-        @media (max-width: 600px) {
-            body {
-                padding: 5px;
-            }
-            .container {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            h2 {
-                font-size: 1.4em;
-            }
-        }
+        @media (max-width: 600px) { body { padding: 5px; } .container { padding: 15px; } h1 { font-size: 1.8em; } h2 { font-size: 1.4em; } }
     </style>
 </head>
 <body>
 
     <main class="container">
-
         <h1>现代版葫芦僧断案？荒唐、无耻、奇葩！<br>广州天河法院判决离谱至极？棠德花苑业主维权无门！</h1>
         
         <div class="visitor-counter">
-            <span id="busuanzi_container_site_pv">总访问量 <strong id="busuanzi_value_site_pv" style="color: var(--accent-color-red);"></strong> 次</span>
-            |
-            <span id="busuanzi_container_site_uv">访客数 <strong id="busuanzi_value_site_uv" style="color: var(--accent-color-blue);"></strong> 人</span>
+            <span id="busuanzi_container_site_pv">总访问量 <strong id="busuanzi_value_site_pv" style="color: var(--accent-color-red);"></strong> 次</span> | <span id="busuanzi_container_site_uv">访客数 <strong id="busuanzi_value_site_uv" style="color: var(--accent-color-blue);"></strong> 人</span>
         </div>
+
         <div class="share-section">
             <h2>我维权20多年，已看尽广州政府嘴脸，家庭因此分裂。我准备拿起舆论武器，揭露真相！</h2>
             <p>宪法赋予我们言论自由，业主的苦必须让全国知道！请立即转发！</p>
@@ -241,7 +235,7 @@
         
         <div class="content-block">
             <h2>背景：广州加装电梯政策下的业主之痛</h2>
-            <p>广州市政府大力推广老旧小区加装电梯，号称便民，但施工乱象频出：棠德花苑楼房11根圈梁被打断6根（超50%，威胁结构安全），设计方案要求加固却无具体措施且报审材料连加固方案都没有，所有责任推给业主。近年广东和广州住建系统问题频发，甚至连广州住建头子去年也被抓。业主安全谁来保障？原告空调被毁只是冰山一角，法院判决为何疑似偏袒利益方及施工方？</p>
+            <p>广州市政府大力推广老旧小区加装电梯，号称便民，但施工乱象频出：棠德花苑楼房11根圈梁被打断6根（超50%，威胁结构安全），设计方案要求加固却无具体措施且报审材料连加固方案都没有，所有责任推给业主。近年广东和广州住-建-系-统问题频发，甚至连广州住-建头子去年也被抓。业主安全谁来保障？原告空调被毁只是冰山-一-角，法院判决为何疑似偏袒利益方及施工方？</p>
             <h3>棠德花苑安全隐患一览</h3>
             <p>楼房11根圈梁，6根被打断（占54.5%），严重威胁结构安全！</p>
         </div>
@@ -250,10 +244,10 @@
         <ul>
             <li><strong>法院逻辑自相矛盾，赔小不赔大？</strong><br>法院承认施工方毁了空调，赔了拆装费200元、清洗费200元（无发票也支持），却说1600元更换费“没换新不算损失”。同样没实际发生，为啥拆装清洗赔，空调不赔？这种荒唐逻辑居然发生在广州天河法院？</li>
             <li><strong>空调毁了3年不赔新机费？</strong><br>检测报告确认施工方乱来导致空调无法制冷，原告要1600元换新，法院却说“没发票+没换新不算损失”。广州3年高温（35°C+），无空调生活多苦？法院不让业主恢复正常生活？</li>
-            <li><strong>胜诉了还自掏诉讼费？</strong><br>施工方侵权成立，赔了511元，但113元诉讼费全让原告出。被告惹祸，受害人倒贴钱？这是保护谁的利益？再次证明司法黑暗、奇葩、荒唐、无耻！！！！！</li>
+            <li><strong>胜诉了还自掏诉讼费？</strong><br>施工方侵权成立，赔了511元，但113元诉讼费全让原告出。被告惹祸，受害人倒贴钱？这是保护谁的利益？再次证明司-法-黑-暗、奇葩、荒唐、无耻！！！！！</li>
             <li><strong>法官微信加被告律师？</strong><br>开庭当天，法官与被告律师加微信“传证据”，原告却得用法院平台/快递。程序公平在哪？谁看了不怀疑有私下交易？</li>
-            <li><strong>15个月才判，拖延加重苦难？</strong><br>法律要求6-12个月结案，这案拖了15个月！3个夏天无空调，法院自己违法违规且不解释延期原因，业主的苦谁管？</li>
-            <li><strong>圈梁断一半，安全隐患被无视？</strong><br>楼房11根圈梁断6根，方案无加固细节，责任全推业主。政府推电梯，法院护施工方，业主的房安全谁保障？</li>
+            <li><strong>15个月才判，拖延加重苦难？</strong><br>法律要求6-12个月结案，这案拖了15个月！3个夏天无空调，法院自己违-法-违-规且不解释延期原因，业主的苦谁管？</li>
+            <li><strong>圈梁断一半，安全隐患被无视？</strong><br>楼房11根圈梁断6根，方案无加固细节，责任全推业主。政-府推电梯，法院护施工方，业主的房安全谁保障？</li>
         </ul>
         
         <div class="content-block">
@@ -264,18 +258,18 @@
         
         <div class="content-block">
             <h2>全国业主的共同呼声</h2>
-            <p>加装电梯本是便民工程，但野蛮施工、司法不公让多少业主欲哭无泪？20年维权路，业主的苦谁懂？你也遇到类似问题？快分享你的故事，联合起来为公平发声！</p>
+            <p>加装电梯本是便民工程，但野蛮施工、司-法-不公让多少业主欲哭无泪？20年维权路，业主的苦谁懂？你也遇到类似问题？快分享你的故事，联合起来为公平发声！</p>
             <a href="mailto:justice4owners@example.com" class="cta email">提交你的经历 (请替换为您的邮箱)</a>
         </div>
         
         <div class="conclusion">
             <h2>业主维权为何如此艰难？</h2>
-            <p>空调坏了、房子不安全、打官司还倒贴钱，法院判决让人寒心。加装电梯本为民生，司法疑似偏袒施工方，业主权益谁来护？请转发，让更多人关注公平正义！</p>
+            <p>空调坏了、房子不安全、打官司还倒贴钱，法院判决让人寒心。加装电梯本为民生，司-法疑似偏袒施工方，业主权益谁来护？请转发，让更多人关注公平正义！</p>
             <p>（基于真实判决书及20年维权经历，仅供参考，欢迎理性讨论）</p>
         </div>
 
         <h2 id="comments">发表评论 / Read Comments</h2>
-        <div id="gitalk-container"></div>
+        <div id="waline"></div>
         
     </main>
 
@@ -284,8 +278,32 @@
     </footer>
 
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <script type="module">
+        import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
 
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+        init({
+            el: '#waline',
+            // 【【【最重要的一步】】】
+            // 请将下面的长字符串替换成你刚刚从 Vercel 获取的 Server URL
+            serverURL: 'https://walinevc.vercel.app',
+            
+            // 允许游客评论，并让昵称为必填项
+            lang: 'zh-CN',
+            meta: ['nick', 'mail'],
+            requiredMeta: ['nick'],
+            
+            // 开启文章阅读数统计
+            pageview: true,
+
+            // 其他个性化配置
+            wordLimit: [0, 250], // 评论字数限制
+            emoji: [
+                'https://unpkg.com/@waline/emojis@1.2.0/weibo',
+                'https://unpkg.com/@waline/emojis@1.2.0/bilibili',
+            ],
+        });
+    </script>
     
     <script>
         // --- 社交分享功能 ---
@@ -305,21 +323,7 @@
 
         function shareToWechat() {
             alert('微信分享功能在PC端需要您手动截图，或者使用手机浏览器的分享功能。感谢您的支持！');
-            // 未来可以优化为弹出一个二维码窗口
         }
-
-        // --- 初始化Gitalk评论系统 ---
-        const gitalk = new Gitalk({
-            clientID: 'Ov23liTBbXAl2a3D1mdO',
-            clientSecret: 'ef698a4b13e1ed88b592dcda706de1b8c6322949',
-            repo: 'vcjavacgi.github.io',      // 你的仓库名称
-            owner: 'vcjavacgi',              // 你的GitHub用户名
-            admin: ['vcjavacgi'],            // 你的GitHub用户名 (管理员)
-            id: location.pathname,           // 页面的唯一标识，保持默认即可
-            distractionFreeMode: false       // 无干扰模式
-        });
-
-        gitalk.render('gitalk-container');
     </script>
 
 </body>
