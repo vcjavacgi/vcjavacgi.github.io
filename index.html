@@ -188,6 +188,8 @@
             --waline-badge-color: var(--accent-color-blue);
             --waline-theme-color: var(--accent-color-blue);
             --waline-info-bg-color: #333;
+                /* --- 在这里添加下面这一行，强制文字为纯白色 --- */
+            color: #ffffff;
         }
         
         /* --- 页脚 --- */
@@ -287,6 +289,8 @@
             // 【【【最重要的一步】】】
             // 请将下面的长字符串替换成你刚刚从 Vercel 获取的 Server URL
             serverURL: 'https://walinevc.vercel.app',
+            // --- 在这里添加下面这一行，禁用表情互动和地理位置 ---
+        reaction: false,
            // --- 请在这里添加下面这一行 ---
         imageUploader: false, // 这会禁用图片上传功能
         // --------------------------------
