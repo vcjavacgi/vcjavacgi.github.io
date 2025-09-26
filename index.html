@@ -371,7 +371,7 @@ function shareToTwitter() {
 function shareToFacebook() {
     var url = encodeURIComponent(window.location.href);
     // Facebook可以通过 quote 参数带上您的专属文案
-    var quote = encodeURIComponent(customShareText + ' ' + universalHashtags);
+    var quote = encodeURIComponent(customShareText + ' '+ document.title  + universalHashtags);
     var shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`;
     window.open(shareUrl, '_blank');
 }
