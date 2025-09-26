@@ -220,7 +220,11 @@
   font-size: 1.2em; /* 比普通文字大20% */
   font-weight: bold; /* 字体加粗 */
 }
-    
+   .share-note {
+  font-size: 0.8em;  /* 字体比正文小一点 */
+  color: #777;      /* 颜色用灰色，不那么显眼 */
+  margin-top: 15px;  /* 和上面的按钮保持一点距离 */
+} 
     <main class="container">
         <h1>现代版葫芦僧断案？荒唐、无耻、奇葩！<br>广州天河法院判决离谱至极？<br>棠德花苑以及全国的业主们都维权无门！！！</h1>
         
@@ -331,6 +335,10 @@
     </script>
     
     <script>
+        var customShareText = '广州天河法院判决离谱至极？棠德花苑业主空调被毁3年不赔，圈梁断一半无人管！快来看真相！';
+var weiboHashtags = '#业主维权# #广州电梯乱象#';
+var universalHashtags = '#业主维权 #广州电梯乱象';
+        
         // --- 社交分享功能 ---
         function shareToWeibo() {
             var url = encodeURIComponent(window.location.href);
@@ -349,6 +357,28 @@
         function shareToWechat() {
             alert('微信分享功能在PC端需要您手动截图，或者使用手机浏览器的分享功能。感谢您的支持！');
         }
+
+// --- 以下是新增的函数 ---
+
+function shareToTwitter() {
+    var url = encodeURIComponent(window.location.href);
+    // 组合您的专属文案、页面标题和通用格式的话题
+    var text = encodeURIComponent(customShareText + ' ' + document.title + ' ' + universalHashtags);
+    var shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareToFacebook() {
+    var url = encodeURIComponent(window.location.href);
+    // Facebook可以通过 quote 参数带上您的专属文案
+    var quote = encodeURIComponent(customShareText + ' ' + universalHashtags);
+    var shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${quote}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareToInstagram() {
+    alert("Instagram 不支持直接分享网页链接。\n您可以复制当前页面地址，然后在App内以发帖或快拍的形式分享。");
+}     
     </script>
 
 </body>
