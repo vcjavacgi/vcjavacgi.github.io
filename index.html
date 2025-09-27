@@ -220,6 +220,65 @@
   color: #777;      /* 颜色用灰色，不那么显眼 */
   margin-top: 15px;  /* 和上面的按钮保持一点距离 */
 } 
+
+        /* --- 延伸阅读区块 --- */
+.related-articles-section {
+    background-color: #2c2c2c; /* 与内容区块背景色一致 */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 40px 0; /* 上下边距 */
+    border-left: 4px solid #8e44ad; /* 使用紫色作为区分 */
+}
+
+.related-articles-section h2 {
+    color: #c7a1e1; /* 淡紫色标题 */
+    border-left: none; /* 移除原有的h2左边框 */
+    text-align: center; /* 标题居中 */
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.related-article-item {
+    background-color: #383838;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #4a4a4a;
+}
+
+.related-article-item:last-child {
+    margin-bottom: 0;
+}
+
+.related-article-item h3 {
+    color: #e0e0e0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.related-article-item .summary {
+    color: var(--secondary-text-color);
+    font-size: 1em; /* 摘要文字稍小一点 */
+    line-height: 1.7;
+}
+
+.read-more-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: 1px solid var(--accent-color-blue);
+    color: var(--accent-color-blue);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: var(--accent-color-blue);
+    color: white;
+}
         
     </style>
 </head>
@@ -280,7 +339,21 @@
             <li><strong>15个月才判，拖延加重苦难？</strong><br>法律要求6-12个月结案，这案拖了15个月！3个夏天无空调，法院自己违-法-违-规且不解释延期原因，业主的苦谁管？</li>
             <li><strong>圈梁断一半，安全隐患被无视？</strong><br>楼房11根圈梁断6根，方案无加固细节，责任全推业主。政-府推电梯，法院护施工方，业主的房安全谁保障？</li>
         </ul>
-              
+
+        <div class="related-articles-section">
+            <h2>不止是孤例：我们时代的共同困境</h2>
+            <div class="related-article-item">
+                <h3>官民对立：为何抗议在中国多地频发？</h3>
+                <p class="summary">“经济衰退与地方政府的权力滥用，正让越来越多的人走上街头。从烂尾楼业主到被拖欠工资的工人，当司法无法提供公正，抗议便成为最后的表达方式。这不仅是个别官员的问题，更是系统性失灵的警示。”</p>
+                <a href="https://www.rfi.fr/cn/%E4%B8%93%E6%A0%8F%E6%A3%80%E7%B4%A2/%E5%85%AC%E6%B0%91%E8%AE%BA%E5%9D%9B/20250926-%E6%BB%95%E5%BD%AA-%E4%B8%AD%E5%9B%BD%E5%A4%84%E5%9C%A8%E6%8A%97%E8%AE%AE%E5%A4%9A%E5%8F%91%E6%9C%9F%EF%BC%8C%E8%B5%B0%E5%90%91-%E5%92%8C%E8%B0%90%E7%A4%BE%E4%BC%9A-%E7%9A%84%E5%8F%8D%E9%9D%A2" target="_blank" rel="noopener noreferrer" class="read-more-btn">阅读RFI深度报道 &raquo;</a>
+            </div>
+            <div class="related-article-item">
+                <h3>经济困境：人人自危的“紧缩”时代</h3>
+                <p class="summary">“房地产泡沫的破裂和对未来的不确定性，让普通人捂紧了钱包。当赖以生存的资产大幅缩水，当中产阶级的梦想被现实击碎，整个社会便陷入了信心危机。您的遭遇，正是这场危机下无数家庭的缩影。”</p>
+                <a href="https://www.bbc.com/zhongwen/articles/cjw712wqg8jo/simp" target="_blank" rel="noopener noreferrer" class="read-more-btn">阅读BBC深度报道 &raquo;</a>
+            </div>
+        </div>
+
         <div class="content-block">
             <h2>全国业主的共同呼声</h2>
             <p>加装电梯本是便民工程，但野蛮施工、司法不公让多少业主欲哭无泪？20年维权路，业主的苦谁懂？你也遇到类似问题？快分享你的故事，联合起来为公平发声！</p>
