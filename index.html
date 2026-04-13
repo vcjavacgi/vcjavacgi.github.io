@@ -1,219 +1,96 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-   
-    <meta name="google-site-verification" content="7Wf1kFTbQXMWjqhBtILbKzTMgoKC-yMgwQjcYQRyiKI" />  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>銘記8964:1989年6月4日 八九六四 台湾独立 | 记录历史 传播真相 中国 北京 天安门 大屠杀</title>
-    <meta name="description" content="銘記8964:TIAN AN MEN 天安门 八九六四 台湾独立。这是一个流动的纪念碑，真实记录了1989年民主运动及个体命运的挣扎。">
-    <meta name="keywords" content="銘記8964:天安门,八九六四,1989,19890604,1989年6月4日,台湾独立,民主运动,大屠杀,六四运动,历史真相" />
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://8964.freeddns.org/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://8964.freeddns.org/" />
-    <meta property="og:title" content="銘記8964:1989年6月4日 - 记录历史 传播真相" />
-    <meta property="og:description" content="这是一个流动的纪念碑，碑身上交错刻下三条时间线：大历史、民主抗争与个体命运。" />
-    <meta property="og:image" content="https://8964.freeddns.org/qsewr/dasf/erwq/reeqr/rwer/ewqr/tttt/2978060401.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="銘記8964:1989年6月4日 八九六四" />
-    <meta name="twitter:description" content="光之记忆，历史永存。记录1989年发生的真相。" />
-    <meta name="twitter:image" content="https://8964.freeddns.org/qsewr/dasf/erwq/reeqr/rwer/ewqr/tttt/2978060401.png" />
+    <meta name="description" content="记录历史 - 图片展示">
+    <title>记录历史 - 永不忘</title>
+    <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;900&display=swap" rel="stylesheet">
+    <!-- 自定义样式 -->
     <style>
-        /* --- 全局重置 --- */
-        html, body {
-            margin: 0;
-            padding: 0;
+        body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: #575f4f;
             color: #f1e8dd;
-            height: 100%;
-        }
-        body {
+            margin: 0;
+            height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        /* --- 电脑端布局 --- */
-        @media (min-width: 769px) {
-            body { overflow: hidden; }
-            .header-mobile { display: none; }
-            .main {
-                flex: 1;
-                height: 100%;
-                overflow: hidden;
-            }
-            .main > .container-fluid,
-            .main .row { height: 100%; }
-            
-            /* 左侧栏样式 */
-            .left-column {
-                height: 100%;
-                overflow-y: auto;
-                scrollbar-width: none;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            .left-column::-webkit-scrollbar { display: none; }
-
-            /* 中间内容区域 */
-            .content {
-                height: 100%;
-                overflow-y: auto;
-                scrollbar-width: none;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                padding-bottom: 20px;
-                /* 内容左侧留白 */
-                padding-left: 40px; 
-                padding-right: 40px;
-            }
-            .content::-webkit-scrollbar { display: none; }
-
-            /* ★★★ 右侧栏样式 (修改处) ★★★ */
-            .right-column {
-                height: 100%;
-                overflow-y: auto;
-                scrollbar-width: none;
-                display: flex;
-                flex-direction: column;
-                
-                /* 1. 取消居中，改为顶部对齐 */
-                justify-content: flex-start; 
-                
-                /* 2. 增加顶部距离 (你可以修改 150px 这个数字来调整高度) */
-                padding-top: 150px; 
-                
-                border-left: 1px solid rgba(241, 232, 221, 0.1); 
-                padding-left: 20px;
-            }
-            .right-column::-webkit-scrollbar { display: none; }
-
-            .site-info-wrapper {
-                margin-top: auto;
-                padding-top: 40px;
-            }
+        .header-mobile {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
         }
-        /* --- 移动端布局 --- */
-        @media (max-width: 768px) {
-            html, body {
-                height: auto;
-                overflow-y: auto;
-            }
-            .header-mobile {
-                display: flex;
-                justify-content: space-between;
-                padding: 10px 15px;
-                background-color: #575f4f;
-            }
-            .main {
-                height: auto;
-                display: block;
-                padding: 0;
-            }
-            .left-column {
-                padding: 10px 12px;
-                margin-bottom: 10px;
-                border-bottom: 1px solid rgba(241, 232, 221, 0.2);
-            }
-            .content {
-                padding: 0 12px 30px;
-            }
-            .content img {
-                max-height: 300px;
-                margin-bottom: 10px;
-            }
-            /* 移动端右侧栏样式调整 */
-            .right-column {
-                padding: 20px 12px;
-                border-top: 1px solid rgba(241, 232, 221, 0.2);
-            }
-            .site-info-wrapper {
-                margin-top: 15px;
-                padding: 0 5px;
-            }
-            .friendly-links-block {
-                margin-bottom: 10px;
-                padding-top: 15px;
-            }
-            .counter-block {
-                margin: 0;
-                padding: 12px 0;
-                border-top: 1px solid rgba(241, 232, 221, 0.3);
-                border-bottom: 1px solid rgba(241, 232, 221, 0.3);
-            }
-            .memory-text p {
-                font-size: 1.05em;
-                line-height: 1.6;
-                padding-left: 8px;
-            }
+        .main {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
         }
-/* --- 网站迁移公告样式 --- */
-        .domain-alert-box {
-            margin-bottom: 20px;
-            padding: 15px 20px;
-            border-left: 4px solid #ff6b6b;
-            background: rgba(255, 107, 107, 0.1);
-            border-radius: 4px;
-            text-align: justify;
+        .left-column {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 10px; /* 减少右边距，靠近图片 */
         }
-        .domain-alert-box h5 {
-            color: #ff6b6b;
+        .title h2 {
+            font-size: 2em;
             font-weight: 900;
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
+        }
+        .intro p {
             font-size: 1.1em;
-            letter-spacing: 1px;
+            line-height: 1.65em;
+            margin-bottom: 10px;
         }
-        .domain-alert-box p {
-            font-size: 0.95em;
-            line-height: 1.6;
-            margin-bottom: 0;
-            color: #f1e8dd;
+        .cate {
+            margin-top: 5px; /* 减少上边距，靠近图片 */
         }
-        .domain-alert-box strong {
-            color: #facc29;
-            font-weight: bold;
+        .cate ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center; /* 年份居中对齐 */
         }
-        .domain-alert-box code {
-            color: #ffeb99;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-size: 0.9em;
+        .cate ul li a {
+            color: #ff6b6b; /* 鲜艳珊瑚红 */
+            text-decoration: none;
+            padding: 5px 10px;
+            display: block;
+            font-size: 1.5em; /* 保持大字体 */
+            font-weight: 500; /* 加粗 */
         }
-       /* --- 组件样式 --- */
-        .title h2 { font-size: 2em; font-weight: 900; margin: 0 0 10px 0; }
-        
-        .intro p { 
-            font-size: 1.1em; 
-            line-height: 1.8em; 
-            margin-bottom: 15px; 
-            text-align: justify;
+        .cate ul li a:hover, .cate ul li a.active {
+            color: #facc29; /* 悬停和选中保持原有活跃颜色 */
         }
-        .intro strong {
-            color: #facc29; 
-            font-weight: 900;
+        .content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        
-        .cate ul { list-style: none; padding: 0; margin: 0; text-align: center; }
-        .cate ul li a { color: #ff6b6b; text-decoration: none; padding: 5px 10px; display: block; font-size: 1.5em; font-weight: 500; }
-        .cate ul li a:hover, .cate ul li a.active { color: #facc29; }
         .content img {
             width: 100%;
-            height: auto;
+            height: 100%;
             max-height: 507px;
             display: block;
             margin-bottom: 15px;
             border: 2px solid #f1e8dd;
             cursor: pointer;
-            object-fit: cover;
+        }
+        .content .col-md-6 {
+            padding: 5px;
+            height: 507px;
+        }
+        .content .row {
+            margin: 0;
         }
         .pagination {
-            position: relative;
-            z-index: 10;
             margin-top: 15px;
             display: flex;
             align-items: center;
@@ -227,211 +104,118 @@
             padding: 5px 10px;
             margin: 0 5px;
             cursor: pointer;
-            position: relative;
-            z-index: 11;
         }
-        .pagination button:disabled { background-color: #ccc; cursor: not-allowed; }
-        .pagination button.active { background-color: #facc29; color: #575f4f; }
-        .pagination input { width: 50px; text-align: center; }
+        .pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .pagination button.active {
+            background-color: #facc29;
+            color: #575f4f;
+        }
+        .pagination input {
+            width: 50px;
+            text-align: center;
+        }
+        .footer {
+            padding: 30px 15px;
+            color: #fff;
+        }
+        /* 纪念文字容器 */
         .memory-text {
-            text-align: left;
+            text-align: left; /* 左对齐 */
             margin-bottom: 20px;
             padding: 15px;
-            background: rgba(241, 232, 221, 0.2);
+            background: rgba(241, 232, 221, 0.2); /* 半透明背景 */
             border-radius: 5px;
         }
         .memory-text p {
-            color: #facc29;
-            font-size: 1.2em;
-            font-weight: 500;
-            line-height: 1.8;
+            color: #facc29; /* 活跃颜色 */
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1.2em; /* 稍大字体 */
+            font-weight: 500; /* 中等粗细 */
+            line-height: 1.8; /* 行距 */
             margin: 5px 0;
-            padding-left: 10px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            padding-left: 10px; /* 左边距 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* 文字阴影 */
         }
-        /* --- 友情链接 --- */
-        .friendly-links-block {
-            border-top: 1px solid rgba(241, 232, 221, 0.3);
-            padding-top: 20px;
-            text-align: center;
-            width: 100%;
-        }
-        .friendly-links-block h5 {
-            font-size: 1.1em;
-            color: #facc29;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .friendly-links-block ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-        }
-        .friendly-links-block ul li a {
-            font-size: 0.9em;
-            color: #f1e8dd;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s;
-        }
-        .friendly-links-block ul li a:hover { color: #ff6b6b; opacity: 1; text-decoration: underline; }
-        /* --- 计数器块 --- */
-        .counter-block {
-            text-align: center;
-            width: 100%;
-            padding: 12px 0;
-            font-size: 0.95em;
-            font-weight: 600;
-            color: #ffeb99;
-            background: rgba(255, 204, 102, 0.15);
-            border-top: 1px solid rgba(241, 232, 221, 0.3);
-        }
-        .counter-block svg {
-            margin-right: 6px;
-            vertical-align: -2px;
-        }
+                   .manifesto-link {
+                    margin-top: 25px; /* 与上方的年份列表拉开一些距离 */
+                    border-top: 1px solid rgba(241, 232, 221, 0.3); /* 添加一条柔和的分割线 */
+                    padding-top: 15px; /* 分割线上方的内边距 */
+                }
+        /* 移动端调整 */
         @media (max-width: 768px) {
-            .counter-block { font-size: 0.9em; padding: 15px 0; }
-        }
-        /* --- 网站信息容器 --- */
-        .site-info-container {
-            background: rgba(0,0,0,0.2);
-            padding: 12px;
-            border-radius: 5px;
-            color: #fff;
-            margin-top: 10px;
-        }
-        @media (max-width: 768px) {
-            .site-info-flex { display: flex; flex-direction: column; align-items: center; }
-            .info-counter { display: none; }
-            .info-actions { width: 100%; justify-content: center; }
-        }
-        @media (min-width: 769px) {
-            .site-info-flex { display: flex; justify-content: space-between; align-items: center; }
-            .info-counter { flex-grow: 1; text-align: center; order: 2; }
-            .info-left { order: 1; }
-            .info-right { order: 3; }
-        }
-        .info-left a { font-weight: bold; color: #fff; font-size: 0.9em; }
-        /* ── 因言獲罪區塊 ── */
-        .speech-crimes-section {
-            margin: 20px 0 15px;
-            padding: 12px 0;
-            border-top: 1px solid rgba(241, 232, 221, 0.25);
-            border-bottom: 1px solid rgba(241, 232, 221, 0.25);
-        }
-        .speech-crimes-section h5 {
-            font-size: 1.18em;
-            letter-spacing: 1px;
-            color:#ff6b6b;
-            margin-bottom:8px;
-            text-align:center;
-            font-weight:900;
-        }
-        .speech-scroller-container {
-            height: 400px; /* 右侧栏高度 */
-            overflow-y: auto;
-            overflow-x: hidden;
-            margin-top: 8px;
-            padding-right: 8px;
-            scrollbar-width: thin;
-            scrollbar-color: #facc29 #575f4f;
-        }
-        .speech-scroller-container::-webkit-scrollbar { width: 8px; }
-        .speech-scroller-container::-webkit-scrollbar-track { background: #575f4f; }
-        .speech-scroller-container::-webkit-scrollbar-thumb { background: #facc29; border-radius: 4px; }
-        .speech-scroller { list-style: none; padding: 0; margin: 0; }
-        .speech-scroller li {
-            padding: 10px 0; 
-            line-height: 1.5;
-            font-size: 0.95em;
-            border-bottom: 1px dashed rgba(255,107,107,0.3);
-            color: #f1e8dd;
-        }
-        .speech-scroller li strong { color: #ffeb99; display: block; margin-bottom: 2px; }
-        .speech-scroller li span { font-weight: 600; color:#ff6b6b; margin-right: 5px; }
-        @media (max-width: 768px) {
-            .speech-scroller-container { height: 200px; padding-right: 6px; }
-            .speech-scroller li { font-size: 0.95em; padding: 7px 8px; }
+            .memory-text {
+                padding: 10px;
+            }
+            .memory-text p {
+                font-size: 1em; /* 移动端字体稍小 */
+                padding-left: 5px; /* 移动端左边距稍小 */
+            }
+            .cate ul li a {
+                font-size: 1.2em; /* 移动端年份字体稍小 */
+            }
+            .left-column {
+                padding-right: 5px; /* 移动端减少右边距 */
+            }
+            .cate {
+                margin-top: 2px; /* 移动端进一步减少上边距 */
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 头部（移动端） -->
     <header class="header-mobile d-lg-none">
         <div class="logo">
-            <a href="/" style="color: #f1e8dd; text-decoration: none; font-weight: bold;">Record China</a>
+            <a href="/">Record China</a>
         </div>
         <div class="menu">
-            <button class="btn" style="color: #f1e8dd;">?</button>
+            <button class="btn">☰</button>
         </div>
     </header>
+
+    <!-- 主体 -->
     <main class="main">
         <div class="container-fluid">
             <div class="row">
+                <!-- 左侧：标题 + 年份 -->
                 <div class="col-md-3 left-column">
                     <div class="title">
                         <div class="inner">
-                            <h2>銘記8964:记录历史 传播真相</h2>
+                            <h2>记录历史 传播真相</h2>
                         </div>
                     </div>
                     <div class="intro">
                         <div class="inner">
-                            <p>这是一座用血肉铸就的流动纪念碑，碑身上交错刻下三条带血的控诉：</p>
-                            <p><strong>血腥真相：</strong> 揭露1989年6月4日，中共政权动用正规野战军，悍然将机关枪口和坦克履带对准手无寸铁的爱国学生与市民，制造了惨绝人寰的<strong>“六四大屠杀”</strong>。
-                            <p><strong>历史罪证：</strong> 记录从“八九民运”到苏东剧变的全球民主浪潮，见证中共如何逆历史潮流而动，至今仍无耻地将这场伟大的民主爱国运动污蔑为“反革命暴乱”，以此掩盖其反人类罪行。</p>
-                            <p><strong>正义审判：</strong> 个体的挣扎从未因暴政的恐吓而消散。我们不仅要纪念，更要强烈呼吁平反六四，要求将在这个血淋淋的犯罪中沾满鲜血的刽子手送上历史的审判台，对中共政权进行一场迟来的大审判。</p>
-                            <p><strong>铭记六四真相，捍卫台湾独立---->向世人控诉中共恶行</strong></p>
+                            <p>这是一个流动的纪念碑，碑身上交错刻下三条时间线：</p>
+                            <p>主线：详细讲述1989年4月至6月发生在中国的一场规<br>模浩大的民主抗争运动。</p>
+                            <p>背景线：八九运动推动了改变国际政治格局的苏东剧<br>变，因此记录了当代全球民主自由抗争史。</p>
+                            <p>生命线：被大历史裹挟的个体命运的挣扎，从未因时<br>光流逝而消散。</p>
+                            <p>请点击以下年份浏览具体事件信息：<br>
+                               浏览大图时可用键盘左右箭头切换</p>
                             <a href="/" class="btn underline"></a>
                         </div>
                     </div>
                     <div class="cate">
                         <div class="inner">
-                            <ul id="year-list"></ul>
-                        </div>
-                    </div>
-                    <div class="cate manifesto-link">
-                        <div class="inner">
-                            <ul>
-                                <li><a href = "yongshi.html"> 部分六四遇害者名单 </a></li>  
-                            </ul>
-                        </div>
-                    </div>                    
-                    <div class="cate manifesto-link">
-                        <div class="inner">
-                            <ul>
-                                <li><a href="taiwan-independence.html">支持台湾独立-最后的灯塔</a></li>
+                            <ul id="year-list">
+                                <!-- 年份列表由 JS 动态生成 -->
                             </ul>
                         </div>
                     </div>
-                      <div class="cate political-list-link">
-                        <div class="inner">
-                            <ul>
-                                <li><a href="political_list.html">免费翻墙软件 & 中共家族曝光</a></li>
-                            </ul>
+                        <div class="cate manifesto-link">
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="qsewr/dasf/erwq/erre/sptw.html">最后的灯塔</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cate about-link">
-                        <div class="inner">
-                            <ul>
-                                <li><a href="/about">关于我&关于本项目</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="col-12 col-md-6 content">
-     <div class="domain-alert-box">
-                        <h5>⚠️ 网站迁移与抗审查公告</h5>
-                        <p>
-                            本档案库原域名 (<code>8964.freeddns.org</code>) 于 <strong>2026年3月22日</strong> 遭到有组织的恶意安全攻击。因域名服务商的连坐防卫机制，原免费域名被永久停用。<br><
-                            为彻底切断跨国数字镇压的干扰，确保“六四”历史文献能够永久、安全地存放于自由世界，本站已于2026年3月26日启用独立顶级域名：<strong>8964docs.org</strong>。<br>
-                            历史的真相，绝不会因为防火墙的升级和暗处的恶意攻击而被抹除。
-                        </p>
-                    </div>              
+                <!-- 中间：图片内容 -->
+                <div class="col-md-6 content">
+                    <!-- 纪念文字 -->
                     <div class="memory-text">
                         <p>光之记忆，历史永存 | Memory in Light, History Endures</p>
                         <p>自由之光，照亮历史 | Light of Freedom, Illuminates History</p>
@@ -443,63 +227,22 @@
                         <p>转发历史，唤醒自由 | Share History, Awaken Freedom</p>
                         <p>记录记忆，守护自由 | Record Memory, Defend Freedom</p>
                     </div>
-                
                     <section class="board" id="image-board">
-                        <div class="row"></div>
-                        <div class="pagination" id="pagination"></div>
+                        <div class="row">
+                            <!-- 图片将在这里动态生成 -->
+                        </div>
+                        <div class="pagination" id="pagination">
+                            <!-- 分页按钮将在这里生成 -->
+                        </div>
                     </section>
-                    <div class="site-info-wrapper">
-                        <div class="friendly-links-block">
-                            <h5>友情链接</h5>
-                            <ul>
-                                <li><a href="https://chrad.net/" target="_blank">中國人權問責資料庫</a></li>
-                                <li><a href="http://www.tiananmenmother.org/" target="_blank">天安门母亲</a></li>
-                                <li><a href="http://wqw2010.blogspot.com/" target="_blank">维权网</a></li>
-                                <li><a href="http://www.chinesepen.org/" target="_blank">独立中文笔会</a></li>
-                                <li><a href="http://www.2008xianzhang.info/" target="_blank">零八宪章信息网</a></li>
-                                <li><a href="http://biweekly.hrichina.org/home/" target="_blank">中国人权双周刊</a></li>
-                                <li><a href="http://www.msguancha.com/" target="_blank">民生观察</a></li>
-                                <li><a href="https://ban-gfw.com/" target="_blank">拆牆運動</a></li>
-                                <li><a href="https://chinaspring.org/" target="_blank">中國之春</a></li>
-                                <li><a href="https://www.amnesty.org/zh-hans/" target="_blank">国际特赦组织</a></li>
-                            </ul>
-                        </div>
-                        <div class="counter-block">
-                            <span id="busuanzi_container_site_pv" style="display:none">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style="vertical-align: text-bottom; margin-right: 6px;">
-                                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                                  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                                </svg>
-                                网站浏览总量: <span id="busuanzi_value_site_pv"></span>
-                            </span>
-                           
-                        </div>
-                        <div class="site-info-container">
-                            <div class="site-info-flex">
-                                <div class="info-actions">
-                                    <div class="info-left">
-                                    </div>
-                                    <div class="info-right">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="col-md-3 right-column d-md-block d-none">
-                    <div class="cate speech-crimes-section">
-                        <div class="inner">
-                            <h5>2025年 因言獲罪速報</h5>
-                            <div class="speech-scroller-container">
-                                <ul id="speech-list" class="speech-scroller"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- 右侧：占位 -->
+                <div class="col-md-3"></div>
             </div>
         </div>
     </main>
+
+    <!-- 放大图片的 Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -509,6 +252,7 @@
                 </div>
                 <div class="modal-body">
                     <img src="" id="modalImage" style="width: 100%; height: auto;">
+                    <!-- 纪念文字 -->
                     <div class="memory-text">
                         <p>光之记忆，历史永存 | Memory in Light, History Endures</p>
                         <p>自由之光，照亮历史 | Light of Freedom, Illuminates History</p>
@@ -524,10 +268,25 @@
             </div>
         </div>
     </div>
+
+    <!-- 页脚 -->
+    <footer class="footer d-none d-lg-block">
+        <div class="container-fluid d-flex justify-content-between">
+            <div class="footer-left">
+                 <a href="/about" class="btn underline" style="color: #ffffff; font-weight: bold;">关于我们</a>
+            </div>
+            <div class="footer-right">
+                <button class="btn active">中</button>
+                <button class="btn">EN</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-   <script defer src="https://events.vercount.one/js"></script>
+    <!-- 自定义 JS -->
     <script>
-        // 图片路径和完整文件名列表（保持原样）
+        // 图片路径和完整文件名列表
         const basePath = "qsewr/dasf/erwq/reeqr/rwer/ewqr/tttt/";
         const imageFiles = [
             "29760928.png", "29761201.png", "29771201.png", "29780101-1.png", "29780101-2.png",
@@ -547,11 +306,15 @@
             "2978060702.png", "29780801.png", "29780802.png", "29780803.png", "29780804.png",
             "29780805.png", "29780806.png", "2978080602.png"
         ];
+
+        // 年份映射
         const yearMap = {
             "2976": "1986",
             "2977": "1988",
             "2978": "1989"
         };
+
+        // 按年份分组
         const images = {};
         imageFiles.forEach(file => {
             const yearCode = file.slice(0, 4);
@@ -559,13 +322,16 @@
             if (!images[displayYear]) images[displayYear] = [];
             images[displayYear].push(`${basePath}${file}`);
         });
+
+        // 动态生成年份列表
         const yearList = document.getElementById('year-list');
         const imageBoard = document.getElementById('image-board').querySelector('.row');
         const pagination = document.getElementById('pagination');
         let currentYear = null;
         let currentPage = 1;
         const imagesPerPage = 2;
-        let currentModalIndex = 0;
+        let currentModalIndex = 0; // 当前 Modal 图片索引
+
         Object.keys(images).forEach(year => {
             const li = document.createElement('li');
             const a = document.createElement('a');
@@ -579,6 +345,8 @@
             li.appendChild(a);
             yearList.appendChild(li);
         });
+
+        // 显示图片函数（带增强分页）
         function showImages(year, page) {
             const yearImages = images[year] || [];
             const totalImages = yearImages.length;
@@ -586,12 +354,15 @@
             const startIndex = (page - 1) * imagesPerPage;
             const endIndex = startIndex + imagesPerPage;
             const displayedImages = yearImages.slice(startIndex, endIndex);
+
             imageBoard.innerHTML = displayedImages.length > 0
                 ? displayedImages.map((img, index) => `
                     <div class="col-md-6">
                         <img src="${img}" alt="${year} 时间线图片" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showModal('${img}', ${startIndex + index})">
                     </div>`).join('')
                 : '<p>该年份暂无图片。</p>';
+
+            // 更新分页按钮
             pagination.innerHTML = '';
             if (totalPages > 1) {
                 const firstButton = document.createElement('button');
@@ -599,11 +370,13 @@
                 firstButton.disabled = page === 1;
                 firstButton.onclick = () => showImages(year, 1);
                 pagination.appendChild(firstButton);
+
                 const prevButton = document.createElement('button');
                 prevButton.textContent = '上一页';
                 prevButton.disabled = page === 1;
                 prevButton.onclick = () => showImages(year, page - 1);
                 pagination.appendChild(prevButton);
+
                 const startPage = Math.max(1, page - 3);
                 const endPage = Math.min(totalPages, page + 3);
                 for (let i = startPage; i <= endPage; i++) {
@@ -613,22 +386,26 @@
                     pageButton.onclick = () => showImages(year, i);
                     pagination.appendChild(pageButton);
                 }
+
                 const nextButton = document.createElement('button');
                 nextButton.textContent = '下一页';
                 nextButton.disabled = page === totalPages;
                 nextButton.onclick = () => showImages(year, page + 1);
                 pagination.appendChild(nextButton);
+
                 const lastButton = document.createElement('button');
                 lastButton.textContent = '最后一页';
                 lastButton.disabled = page === totalPages;
                 lastButton.onclick = () => showImages(year, totalPages);
                 pagination.appendChild(lastButton);
+
                 const jumpInput = document.createElement('input');
                 jumpInput.type = 'number';
                 jumpInput.min = 1;
                 jumpInput.max = totalPages;
                 jumpInput.placeholder = '页码';
                 pagination.appendChild(jumpInput);
+
                 const jumpButton = document.createElement('button');
                 jumpButton.textContent = '跳转';
                 jumpButton.onclick = () => {
@@ -637,17 +414,26 @@
                 };
                 pagination.appendChild(jumpButton);
             }
+
+            // 更新选中状态
             document.querySelectorAll('.cate a').forEach(a => a.classList.remove('active'));
             document.querySelector(`.cate a[href="#${year}"]`).classList.add('active');
         }
+
+        // 显示放大图片的 Modal 并记录索引
         function showModal(imageSrc, index) {
-            document.getElementById('modalImage').src = imageSrc;
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
             currentModalIndex = index;
         }
+
+        // 键盘翻页逻辑
         document.addEventListener('keydown', (event) => {
             if (!currentYear || !document.getElementById('imageModal').classList.contains('show')) return;
+
             const yearImages = images[currentYear];
             if (!yearImages || yearImages.length === 0) return;
+
             if (event.key === 'ArrowLeft') {
                 currentModalIndex = (currentModalIndex - 1 + yearImages.length) % yearImages.length;
                 document.getElementById('modalImage').src = yearImages[currentModalIndex];
@@ -656,55 +442,12 @@
                 document.getElementById('modalImage').src = yearImages[currentModalIndex];
             }
         });
+
+        // 默认显示第一个年份的图片
         if (Object.keys(images).length > 0) {
             currentYear = Object.keys(images)[0];
             showImages(currentYear, 1);
         }
-        // ==================== 因言獲罪部分 (ID匹配，自动生成列表) ====================
-        const speechCases = [
-            { date: "2025-01-06", name: "陈品霖", desc: "白纸运动纪录片导演，寻衅滋事判3年半" },
-            { date: "2025-01", name: "余文生", desc: "人权律师，煽颠二审维持3年" },
-            { date: "2025-03", name: "姜卫东", desc: "江苏民主人士，寻衅判2年6个月" },
-            { date: "2025-04", name: "杨顺敏", desc: "在职警察，朋友圈批评领导判2年6个月" },
-            { date: "2025-04-15", name: "梅世林", desc: "高架桥挂横幅，被羁押" },
-            { date: "2025-04前后",name: "吴强", desc: "4月9日发帖后两天被扣以寻衅滋事罪刑拘" },
-            { date: "2025-07", name: "彭立发", desc: "四通桥勇士，传秘密判9年" },
-            { date: "2025-07", name: "黄琳婷", desc: "长期维权，7月再次被抓，以寻衅滋事罪刑拘" },
-            { date: "2025-07-26", name: "胡洋", desc: "回国探亲在上海机场被抓，以寻衅滋事罪刑拘，其母称“因言获罪”" },
-            { date: "2025-08-08", name: "徐琳", desc: "民主人士，判3年9个月，转监英德" },
-            { date: "2025-09-19", name: "张展", desc: "公民记者，二度因言判4年" },
-            { date: "2025-10", name: "沈爱斌", desc: "多次因言被判，此次10月31日再次被刑拘" },
-            { date: "2025-10-30", name: "郭兴梅", desc: "重庆维权人士，寻衅滋事判3年（网上言论+境外媒体）" },
-            { date: "2025-11", name: "龙克海", desc: "甘肃民主人士，寻衅滋事判2年6个月，已转监" },
-            { date: "2025-12", name: "杜斌", desc: "资深记者/纪录片导演，寻衅滋事罪刑事拘留（10月15日）" },
-            { date: "2025", name: "因言获罪", desc: "還有上百未公開姓名者被以尋衅滋事罪判刑或拘留" },
-            { date: "2025", name: "常態化", desc: "因言獲罪依然是常態，絕大多數普通人因被點贊數少、關注少、影響有限的批評就被快速入罪" },
-        ];
-        document.addEventListener('DOMContentLoaded', () => {
-            const speechList = document.getElementById('speech-list');
-            if (!speechList) return;
-            speechCases.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${item.date}</strong>　<span>${item.name}</span>　${item.desc}`;
-                speechList.appendChild(li);
-            });
-        });
     </script>
-
-    <div class="gtranslate_wrapper"></div>
-    <script>
-        window.gtranslateSettings = {
-            "default_language": "zh-TW", 
-            "detect_browser_language": true,
-            "wrapper_selector": ".gtranslate_wrapper",
-            "flag_style": "3d",
-            "alt_flags": {"en": "usa"},
-            "languages": ["zh-TW", "zh-CN", "en", "de", "ja"],
-            "switcher_horizontal_position": "right",
-            "switcher_vertical_position": "top"
-        }
-    </script>
-    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
 </body>
 </html>
