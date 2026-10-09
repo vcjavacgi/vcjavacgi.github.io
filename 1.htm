@@ -12,6 +12,7 @@
 </head>
 <body class="bg-slate-50 text-slate-800 h-full flex flex-col antialiased">
 
+    <!-- Header -->
     <header class="bg-indigo-600 text-white shadow-md">
         <div class="max-w-2xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
@@ -21,20 +22,23 @@
                     <p class="text-xs text-indigo-200">Saßmicke ⇄ Wende/Hillmicke 专线快速通道</p>
                 </div>
             </div>
-            <a href="https://www.zws-online.de/fahrplaene-liniennetz/meintaxibus/buchen-ueber-internet" target="_blank" class="bg-indigo-700 hover:bg-indigo-800 text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 border border-indigo-500 shadow-sm">
-                🌐 打开官方后台
-            </a>
+            <div class="flex items-center gap-2">
+                <a href="https://esm.ansat.de/VGWS/ansat/ast_efa.aspx?Auskunft" target="_blank" class="bg-indigo-700 hover:bg-indigo-800 text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 border border-indigo-500 shadow-sm">
+                    📋 官方管理后台
+                </a>
+            </div>
         </div>
     </header>
 
+    <!-- Main Container -->
     <main class="flex-grow max-w-2xl w-full mx-auto px-4 py-6 space-y-5">
 
         <!-- Notification Toast -->
         <div id="toast" class="hidden fixed top-5 right-5 z-50 bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-lg transition-all duration-300 text-sm font-medium flex items-center gap-2">
-            <span>✅</span> <span id="toast-msg">保存成功</span>
+            <span>✅</span> <span id="toast-msg">操作成功</span>
         </div>
 
-        <!-- Credentials Quick Card -->
+        <!-- Credentials Card -->
         <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 space-y-4">
             <div class="flex justify-between items-center">
                 <h2 class="text-sm font-semibold text-slate-800 flex items-center gap-2">
@@ -54,7 +58,7 @@
             </div>
         </div>
 
-        <!-- Quick Booking Form Card -->
+        <!-- Booking Form Card -->
         <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
             <div class="border-b border-slate-100 pb-3 flex justify-between items-center">
                 <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
@@ -63,7 +67,20 @@
                 <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">线路 03049</span>
             </div>
 
-            <form id="quick-form" onsubmit="handleQuickBooking(event)" class="space-y-4">
+            <!-- Hidden form target for direct submission simulation -->
+            <form id="ansat-real-form" action="https://esm.ansat.de/VGWS/ansat/ast_efa.aspx" method="POST" target="_blank" class="hidden">
+                <input type="hidden" name="email" id="f-email">
+                <input type="hidden" name="password" id="f-pass">
+                <input type="hidden" name="start" value="L 512/Saßmicke">
+                <input type="hidden" name="ziel" value="Wende/Hillmicke">
+                <input type="hidden" name="date" id="f-date">
+                <input type="hidden" name="time" id="f-time">
+                <input type="hidden" name="pax" id="f-pax">
+                <input type="hidden" name="ticket" id="f-ticket">
+                <input type="hidden" name="note" id="f-note">
+            </form>
+
+            <form id="quick-form" onsubmit="handleDirectSubmit(event)" class="space-y-4">
                 
                 <!-- Fixed Route Display -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
@@ -85,7 +102,11 @@
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-slate-600 mb-1">发车时间 (Abfahrt) *</label>
-                        <input type="text" id="r-time" value="08:23 (an 08:34)" required class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <select id="r-time" required class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white font-medium">
+                            <option value="08:23 (an 08:34)" selected>08:23 永恒常规班次 (an 08:34)</option>
+                            <option value="custom">-- 手动输入其他时间 --</option>
+                        </select>
+                        <input type="text" id="r-time-custom" placeholder="例如: 14:15" class="hidden mt-2 w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     </div>
                 </div>
 
@@ -124,7 +145,7 @@
                         💾 保存到本地行程单
                     </button>
                     <button type="submit" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-3 px-4 rounded-xl transition text-center shadow-md shadow-indigo-100 flex items-center justify-center gap-2">
-                        <span>🚀</span> 前往官方系统提交
+                        <span>🚀</span> 直接提交预约并记忆
                     </button>
                 </div>
             </form>
@@ -156,6 +177,17 @@
             if (creds.email) document.getElementById('acc-email').value = creds.email;
             if (creds.pass) document.getElementById('acc-pass').value = creds.pass;
 
+            // Handle custom time toggle
+            document.getElementById('r-time').addEventListener('change', function(e) {
+                const customInput = document.getElementById('r-time-custom');
+                if (e.target.value === 'custom') {
+                    customInput.classList.remove('hidden');
+                    customInput.focus();
+                } else {
+                    customInput.classList.add('hidden');
+                }
+            });
+
             renderSavedBookings();
         };
 
@@ -166,29 +198,57 @@
             showToast('账户凭证已安全保存到本地浏览器');
         }
 
-        function handleQuickBooking(event) {
+        function handleDirectSubmit(event) {
             event.preventDefault();
-            saveCredentials(); // auto save creds on submit
+            saveCredentials();
 
-            const date = document.getElementById('r-date').value;
-            const time = document.getElementById('r-time').value;
-            const passengers = document.getElementById('r-passengers').value;
-            const ticket = document.getElementById('r-ticket').value;
+            const email = document.getElementById('acc-email').value.trim();
+            const pass = document.getElementById('acc-pass').value.trim();
 
-            // Also auto-save to local history
+            if (!email || !pass) {
+                showToast('请先填写邮箱和密码凭证');
+                return;
+            }
+
+            let timeVal = document.getElementById('r-time').value;
+            if (timeVal === 'custom') {
+                timeVal = document.getElementById('r-time-custom').value.trim();
+                if (!timeVal) {
+                    showToast('请填写自定义发车时间');
+                    return;
+                }
+            }
+
+            // Populate hidden form and submit directly
+            document.getElementById('f-email').value = email;
+            document.getElementById('f-pass').value = pass;
+            document.getElementById('f-date').value = document.getElementById('r-date').value;
+            document.getElementById('f-time').value = timeVal;
+            document.getElementById('f-pax').value = document.getElementById('r-passengers').value;
+            document.getElementById('f-ticket').value = document.getElementById('r-ticket').value;
+            document.getElementById('f-note').value = document.getElementById('r-note').value;
+
+            // Save also to local history
             saveToMyBookings(false);
 
-            showToast('正在为您打开官方预订页面...');
+            showToast('已向官方系统提交预约请求！');
+            
+            // Trigger direct form submission to target endpoint
             setTimeout(() => {
-                window.open('https://www.zws-online.de/fahrplaene-liniennetz/meintaxibus/buchen-ueber-internet', '_blank');
-            }, 800);
+                document.getElementById('ansat-real-form').submit();
+            }, 500);
         }
 
         function saveToMyBookings(showAlert = true) {
+            let timeVal = document.getElementById('r-time').value;
+            if (timeVal === 'custom') {
+                timeVal = document.getElementById('r-time-custom').value.trim();
+            }
+
             const booking = {
                 id: '_' + Math.random().toString(36).substr(2, 9),
                 date: document.getElementById('r-date').value,
-                time: document.getElementById('r-time').value,
+                time: timeVal,
                 passengers: document.getElementById('r-passengers').value,
                 ticket: document.getElementById('r-ticket').value,
                 note: document.getElementById('r-note').value,
@@ -219,7 +279,7 @@
                     <div class="space-y-1">
                         <div class="font-semibold text-slate-800 flex items-center gap-2">
                             <span class="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">R49</span>
-                            <span>📅 ${item.date} ⏰ ${item.time.split(' ')[0]}</span>
+                            <span>📅 ${item.date} ⏰ ${item.time}</span>
                             <span class="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded">👥 ${item.passengers}人</span>
                         </div>
                         <div class="text-slate-500">📍 ${item.start} ➔ 🏁 ${item.ziel} (${item.ticket})</div>
