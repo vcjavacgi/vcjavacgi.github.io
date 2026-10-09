@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxiBus 快捷预约助手 (R49 专线)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 h-full flex flex-col antialiased">
+
+    <header class="bg-indigo-600 text-white shadow-md">
+        <div class="max-w-2xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-500 p-2 rounded-xl text-xl shadow-inner">🚌</div>
+                <div>
+                    <h1 class="text-base font-bold tracking-tight">R49 TaxiBus 快捷预约助手</h1>
+                    <p class="text-xs text-indigo-200">Saßmicke ⇄ Wende/Hillmicke 专线快速通道</p>
+                </div>
+            </div>
+            <a href="https://www.zws-online.de/fahrplaene-liniennetz/meintaxibus/buchen-ueber-internet" target="_blank" class="bg-indigo-700 hover:bg-indigo-800 text-xs px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 border border-indigo-500 shadow-sm">
+                🌐 打开官方后台
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-2xl w-full mx-auto px-4 py-6 space-y-5">
+
+        <!-- Notification Toast -->
+        <div id="toast" class="hidden fixed top-5 right-5 z-50 bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-lg transition-all duration-300 text-sm font-medium flex items-center gap-2">
+            <span>✅</span> <span id="toast-msg">保存成功</span>
+        </div>
+
+        <!-- Credentials Quick Card -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+            <div class="flex justify-between items-center">
+                <h2 class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                    <span>🔑</span> 官方账户凭证 (自动记忆)
+                </h2>
+                <button type="button" onclick="saveCredentials()" class="text-xs text-indigo-600 hover:text-indigo-800 font-medium">保存凭证</button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">E-Mail</label>
+                    <input type="email" id="acc-email" placeholder="您的注册邮箱" class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-500 mb-1">Passwort</label>
+                    <input type="password" id="acc-pass" placeholder="邮件收到的密码" class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Booking Form Card -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
+            <div class="border-b border-slate-100 pb-3 flex justify-between items-center">
+                <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
+                    <span>🚕</span> R49 班次预约配置
+                </h2>
+                <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">线路 03049</span>
+            </div>
+
+            <form id="quick-form" onsubmit="handleQuickBooking(event)" class="space-y-4">
+                
+                <!-- Fixed Route Display -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                    <div>
+                        <span class="block text-xs font-medium text-slate-400">Start (出发站)</span>
+                        <input type="text" id="route-start" value="L 512/Saßmicke" readonly class="w-full text-sm font-semibold bg-transparent text-slate-700 focus:outline-none cursor-default">
+                    </div>
+                    <div>
+                        <span class="block text-xs font-medium text-slate-400">Ziel (到达站)</span>
+                        <input type="text" id="route-ziel" value="Wende/Hillmicke" readonly class="w-full text-sm font-semibold bg-transparent text-slate-700 focus:outline-none cursor-default">
+                    </div>
+                </div>
+
+                <!-- Date & Time -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">乘车日期 (Datum) *</label>
+                        <input type="date" id="r-date" required class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">发车时间 (Abfahrt) *</label>
+                        <input type="text" id="r-time" value="08:23 (an 08:34)" required class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                </div>
+
+                <!-- Passengers & Ticket Type -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">乘车人数 (Fahrgäste) *</label>
+                        <select id="r-passengers" class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white font-medium">
+                            <option value="1" selected>1 人 (自己)</option>
+                            <option value="2">2 人 (带儿子/同行)</option>
+                            <option value="3">3 人</option>
+                            <option value="4">4 人</option>
+                            <option value="5">5 人</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-600 mb-1">车票类型 (Ticket) *</label>
+                        <select id="r-ticket" class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white font-medium">
+                            <option value="Zeitkarte: vorh." selected>Zeitkarte: vorh. (月票/D-Ticket)</option>
+                            <option value="Einzelfahrkarte Erwachsene: vorh.">单程票 (已持有)</option>
+                            <option value="Einzelfahrkarte Erwachsene (3.20€)">单程票 (3.20€)</option>
+                            <option value="Tageskarte 1Person">日票 (1人)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Info für Fahrer (Note) -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-600 mb-1">司机备注 (Info für Fahrer / 选填)</label>
+                    <input type="text" id="r-note" placeholder="例如: 2人同行，携带月票" class="w-full text-sm border border-slate-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+
+                <!-- Actions -->
+                <div class="pt-3 flex flex-col sm:flex-row gap-3">
+                    <button type="button" onclick="saveToMyBookings()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold py-3 px-4 rounded-xl transition text-center shadow-sm">
+                        💾 保存到本地行程单
+                    </button>
+                    <button type="submit" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-3 px-4 rounded-xl transition text-center shadow-md shadow-indigo-100 flex items-center justify-center gap-2">
+                        <span>🚀</span> 前往官方系统提交
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Saved Bookings Section -->
+        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 space-y-3">
+            <div class="flex justify-between items-center">
+                <h3 class="text-sm font-semibold text-slate-800">已保存的本地行程记录</h3>
+                <span id="booking-count" class="text-xs text-slate-400">共 0 条</span>
+            </div>
+            <div id="saved-list" class="space-y-2">
+                <!-- Dynamic injected items -->
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const STORAGE_CREDENTIALS = 'taxibus_creds_v1';
+        const STORAGE_BOOKINGS = 'taxibus_saved_r49';
+
+        window.onload = function() {
+            // Set default date to today
+            document.getElementById('r-date').valueAsDate = new Date();
+
+            // Load saved credentials if any
+            const creds = JSON.parse(localStorage.getItem(STORAGE_CREDENTIALS) || '{}');
+            if (creds.email) document.getElementById('acc-email').value = creds.email;
+            if (creds.pass) document.getElementById('acc-pass').value = creds.pass;
+
+            renderSavedBookings();
+        };
+
+        function saveCredentials() {
+            const email = document.getElementById('acc-email').value.trim();
+            const pass = document.getElementById('acc-pass').value.trim();
+            localStorage.setItem(STORAGE_CREDENTIALS, JSON.stringify({ email, pass }));
+            showToast('账户凭证已安全保存到本地浏览器');
+        }
+
+        function handleQuickBooking(event) {
+            event.preventDefault();
+            saveCredentials(); // auto save creds on submit
+
+            const date = document.getElementById('r-date').value;
+            const time = document.getElementById('r-time').value;
+            const passengers = document.getElementById('r-passengers').value;
+            const ticket = document.getElementById('r-ticket').value;
+
+            // Also auto-save to local history
+            saveToMyBookings(false);
+
+            showToast('正在为您打开官方预订页面...');
+            setTimeout(() => {
+                window.open('https://www.zws-online.de/fahrplaene-liniennetz/meintaxibus/buchen-ueber-internet', '_blank');
+            }, 800);
+        }
+
+        function saveToMyBookings(showAlert = true) {
+            const booking = {
+                id: '_' + Math.random().toString(36).substr(2, 9),
+                date: document.getElementById('r-date').value,
+                time: document.getElementById('r-time').value,
+                passengers: document.getElementById('r-passengers').value,
+                ticket: document.getElementById('r-ticket').value,
+                note: document.getElementById('r-note').value,
+                start: 'L 512/Saßmicke',
+                ziel: 'Wende/Hillmicke'
+            };
+
+            let list = JSON.parse(localStorage.getItem(STORAGE_BOOKINGS) || '[]');
+            list.unshift(booking);
+            localStorage.setItem(STORAGE_BOOKINGS, JSON.stringify(list));
+
+            renderSavedBookings();
+            if (showAlert) showToast('已成功保存至本地行程列表');
+        }
+
+        function renderSavedBookings() {
+            const list = JSON.parse(localStorage.getItem(STORAGE_BOOKINGS) || '[]');
+            const container = document.getElementById('saved-list');
+            document.getElementById('booking-count').innerText = `共 ${list.length} 条`;
+
+            if (list.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">暂无保存的行程，您可以点击上方按钮保存</p>`;
+                return;
+            }
+
+            container.innerHTML = list.map(item => `
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs">
+                    <div class="space-y-1">
+                        <div class="font-semibold text-slate-800 flex items-center gap-2">
+                            <span class="bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">R49</span>
+                            <span>📅 ${item.date} ⏰ ${item.time.split(' ')[0]}</span>
+                            <span class="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded">👥 ${item.passengers}人</span>
+                        </div>
+                        <div class="text-slate-500">📍 ${item.start} ➔ 🏁 ${item.ziel} (${item.ticket})</div>
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                        <button onclick="copyDetails('${item.date}', '${item.time}', '${item.passengers}')" class="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 px-2.5 py-1.5 rounded-lg transition">📋 复制</button>
+                        <button onclick="deleteBooking('${item.id}')" class="bg-rose-50 hover:bg-rose-100 text-rose-700 px-2.5 py-1.5 rounded-lg transition">🗑️ 删除</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteBooking(id) {
+            let list = JSON.parse(localStorage.getItem(STORAGE_BOOKINGS) || '[]');
+            list = list.filter(i => i.id !== id);
+            localStorage.setItem(STORAGE_BOOKINGS, JSON.stringify(list));
+            renderSavedBookings();
+            showToast('已删除记录');
+        }
+
+        function copyDetails(date, time, pax) {
+            const text = `[R49 TaxiBus]\n出发站: L 512/Saßmicke\n到达站: Wende/Hillmicke\n日期: ${date} 时间: ${time}\n人数: ${pax}人\n票种: Zeitkarte: vorh.`;
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast('行程摘要已复制到剪贴板');
+            } catch (err) {
+                alert('复制失败');
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
